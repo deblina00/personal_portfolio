@@ -103,7 +103,7 @@ export const projectData = [
   {
     id: 5,
     title: "An Advanced Medical & Health Care Website with Next.Js",
-    description: "A brief overview of the project.",
+    description: "A brief overview of the project..",
     image: "/images/medical.webp",
     url: "https://medical-website-pied.vercel.app/",
   },
