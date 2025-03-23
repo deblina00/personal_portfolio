@@ -41,11 +41,26 @@
 
 import SectionHeading from "@/components/Helper/SectionHeading";
 import { projectData } from "@/Data/data";
+import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
 const Project = () => {
+  async function fetchProject() {
+    try {
+      const query = `*[_type=="project"]{title, description, image,url}`;
+      const data = await client.fetch(query);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching projects:", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchProject();
+  }, []);
+
   return (
     <div id="projects" className="pt-16 pb-16 bg-[#0f0f10]">
       <SectionHeading>
